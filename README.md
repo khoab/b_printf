@@ -4,10 +4,10 @@ Because I'm tired of using putstr, putnbr, ...
 This project aim to getting familar with C, know how to va_arg, va_start, ... and the most important thing is create my own version of printf to use while I'm studying @ 42SiliconValley.
 
 <b>What is my printf name?</b>
-_ I will call my printf is b_printf from for the whole project.
+I will call my printf is b_printf from for the whole project.
 
 <b>What can b_printf does?</b>
-_ For now, dummy_printf only handle "scdipoux" case. All the other case and feature couldn't be handle on purpose.
+For now, dummy_printf only handle "scdipoux" case. All the other case and feature couldn't be handle on purpose.
 
 <b> What can 
 ## Compiling
