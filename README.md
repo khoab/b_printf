@@ -4,12 +4,16 @@ Because I'm tired of using putstr, putnbr, ...
 This project aim to getting familar with C, know how to va_arg, va_start, ... and the most important thing is create my own version of printf to use while I'm studying @ 42SiliconValley.
 
 <b>What is my printf name?</b>
-I will call my printf is b_printf from for the whole project.
+<br />I will call my printf is b_printf from for the whole project.
 
 <b>What can b_printf does?</b>
-For now, dummy_printf only handle "scdipoux" case. All the other case and feature couldn't be handle on purpose.
+<br />For now, b_printf only handle "scdipoux" case. All the other case and feature couldn't be handle on purpose.
 
-<b> What can 
+<b> What is some Norme for my b_printf?</b>
+<br /><b>1></b> Each function is limited @ 25 lines/ft (Not include function declaration and open-close bracket.
+<br /><b>2></b> Maximum is 5 function/file. No more than 5 function will be accepted.
+<br /><b>3></b> Only: While-loop, If-Else if/else statement will be accepted. All of the other condition or loop is terminated.
+<br /><b>4></b> Only allow to use: <stdarg.h>, and those function: write, malloc, free. All the other lib or function that not declare is terminated. If you want to use any function other than these, write it your own and add it to your own Libft. 
 ## Compiling
 
 Make sure to edit the `Makefile` to point to
