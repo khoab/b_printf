@@ -35,7 +35,15 @@ int		pf_strlen(char *str)
 int		pf_putstr(char *s)
 {
 	int	ret;
+	char *null;
 
+	if (!s)
+	{
+		null = "(null)";
+		ret = 6;
+		write(1, null, ret);
+		return (ret);		
+	}
 	ret = pf_strlen(s);
 	write(1, s, ret);
 	return (ret);

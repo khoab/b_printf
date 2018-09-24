@@ -100,7 +100,7 @@ int		main(void)
 	int ret;
 	int ret2;
 
-	b_printf("NULL str: %s", NULL);
+	b_printf("NULL str: %s\n", NULL);
 	printf("NULL str: %s", NULL);
 	return (0);
 }
