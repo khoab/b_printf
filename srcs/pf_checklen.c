@@ -1,57 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_put.c                                           :+:      :+:    :+:   */
+/*   pf_checklen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbui <kbui@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/19 17:25:53 by kbui              #+#    #+#             */
-/*   Updated: 2018/09/22 16:42:22 by kbui             ###   ########.fr       */
+/*   Created: 2018/09/23 15:33:40 by kbui              #+#    #+#             */
+/*   Updated: 2018/09/23 23:52:31 by kbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "helper.h"
 
-void		pf_putchar(char c)
+int		pf_nbrlen(int i)
 {
-	write(1, &c, 1);
-}
-
-size_t		pf_strlen(char *str)
-{
-	size_t	i;
-
-	i = -1;
-	while (str[++i])
-		;
-	return (i);
-}
-
-void	pf_putstr(char *s)
-{
-	while (*s)
-		write(1, s++, 1);
-}
-
-void	pf_putnbr(int n)
-{
-	if (n == -2147483648)
-		pf_putstr("-2147483648");
+	if (i >= 1000000000 || i <= -1000000000)
+		return (10);
+	else if (i >= 100000000 || i <= -100000000)
+		return (9);
+	else if (i >= 10000000 || i <= -10000000)
+		return (8);
+	else if (i >= 1000000 || i <= -1000000)
+		return (7);
+	else if (i >= 100000 || i <= -100000)
+		return (6);
+	else if (i >= 10000 || i <= -10000)
+		return (5);
+	else if (i >= 1000 || i <= -1000)
+		return (4);
+	else if (i >= 100 || i <= -100)
+		return (3);
+	else if (i >= 10 || i <= -10)
+		return (2);
 	else
-	{
-		if (n < 0)
-		{
-			pf_putchar('-');
-			n *= -1;
-		}
-		if (n >= 10)
-			pf_putnbr(n / 10);
-		pf_putchar((n % 10) + '0');
-	}
+		return (1);
 }
 
-char		*pf_itoa_base(unsigned int num, int base)
+char		*pf_itoa_base(unsigned long num, int base) 
 {
 	static char *def_base;
 	static char buffer[50];

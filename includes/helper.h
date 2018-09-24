@@ -6,38 +6,28 @@
 /*   By: kbui <kbui@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 17:57:16 by kbui              #+#    #+#             */
-/*   Updated: 2018/09/22 15:41:13 by kbui             ###   ########.fr       */
+/*   Updated: 2018/09/23 17:53:50 by kbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HELPER_H
 # define HELPER_H
 
-# include <string.h>
+# include <stdarg.h>
 
-/*
-** Where the helper function go
-*/
+int			pf_putchar(char c);
+int			pf_strlen(char *str);
+int			pf_putstr(char *str);
+void		pf_putnbr(int n);
 
-size_t		pf_strlen(char *str);
-void	pf_putchar(char c);
-void	pf_putstr(char *str);
-void		pf_case_cdioux(int i, char c);
-char		*pf_itoa_base(unsigned int num, int base);
+int			pf_nbrlen(int i);
+char		*pf_itoa_base(unsigned long num, int base);
+char		*pf_itoa_p(unsigned long num, int base);
 
-/*
-** Where the basic put function go
-*/
-
-void		pf_putchar(char c);
-void		pf_putstr(char *s);
-void		pf_putnbr(int nb);
-
-/*
-** Where the getting function go
-*/
-
-size_t		pf_get(char c);
-size_t		pf_getbase(char c);
+int			pf_case_cdi(int i, char c);
+int			pf_case_oux(unsigned int i, char c);
+int			pf_case_p(unsigned long *ptr);
+int			pf_do_case(va_list arg, char *param);
+int			b_printf(const char *format, ...);
 
 #endif

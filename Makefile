@@ -6,33 +6,54 @@
 #    By: kbui <kbui@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/19 13:42:34 by kbui              #+#    #+#              #
-#    Updated: 2018/09/22 20:14:58 by kbui             ###   ########.fr        #
+#    Updated: 2018/09/23 23:30:02 by kbui             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS ?= -Wall -Wextra -Werror
-NAME ?= b_printf
+C = clang
 
-SRC := \
-	pf_put.c \
-	pf_va.c
+NAME = libftprintf.a
 
-OBJ := $(SRC:.c=.o)
-CFLAGS += -MMD -MP
+FLAGS = -Wall -Wextra -Werror -O2
+
+DIR_S = srcs
+
+DIR_O = obj
+
+HEADER = includes
+
+SOURCES = pf_va.c \
+			pf_checklen.c \
+			pf_put.c
+
+SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
+
+OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	gcc -o -g $(SRC)
+$(NAME): $(OBJS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
--include $(OBJ:.o=.d)
+$(DIR_O)/%.o: $(DIR_S)/%.c $(HEADER)/helper.h
+	@mkdir -p obj
+	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
+
+norme:
+	norminette ./libft/
+	@echo
+	norminette ./$(HEADER)/
+	@echo
+	norminette ./$(DIR_S)/
 
 clean:
-	$(RM) $(OBJ) $(OBJ:.o=.d)
+	@rm -f $(OBJS)
+	@rm -rf $(DIR_O)
 
 fclean: clean
-	$(RM) $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: fclean re norme all clean
