@@ -9,6 +9,9 @@ This project aim to getting familar with C, know how to va_arg, va_start, ... an
 <b>What can b_printf does?</b>
 <br />For now, b_printf only handle "scdipoux" case. All the other case and feature couldn't be handle on purpose.
 
+<b>How long did i take from me to finish b_printf?</b>
+<br /> 4 days, from scratch. I just recently started to learn C before this project. And 42 mins is the total took from me to do it, in other to passed this project and move on to the next one (30 mins code, 12 mins fix syntax errors and typos.)
+
 <b> What is some Norme for my b_printf?</b>
 <br /><b>1></b> Each function is limited @ 25 lines/ft (Not include function declaration and open-close bracket.
 <br /><b>2></b> Maximum is 5 function/file. No more than 5 function will be accepted.
