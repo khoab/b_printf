@@ -6,7 +6,7 @@
 /*   By: kbui <kbui@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 17:25:53 by kbui              #+#    #+#             */
-/*   Updated: 2018/09/23 17:53:51 by kbui             ###   ########.fr       */
+/*   Updated: 2018/10/23 22:58:05 by kbui             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 
 int		pf_putchar(char c)
 {
-	int	ret;
-
-	ret = 1;
-	write(1, &c, ret);
-	return (ret);
+	write(1, &c, 1);
+	return (1);
 }
 
 int		pf_strlen(char *str)
@@ -34,34 +31,31 @@ int		pf_strlen(char *str)
 
 int		pf_putstr(char *s)
 {
-	int	ret;
-	char *null;
+	int		ret;
+	char	*null;
 
 	if (!s)
 	{
 		null = "(null)";
 		ret = 6;
 		write(1, null, ret);
-		return (ret);		
+		return (ret);
 	}
 	ret = pf_strlen(s);
 	write(1, s, ret);
 	return (ret);
 }
 
-void	pf_putnbr(int n)
+void	pf_putnbr(int nb)
 {
-	if (n == -2147483648)
-		pf_putstr("-2147483648");
-	else
+	if (nb < -9 || nb > 9)
+		pf_putnbr(nb / 10);
+	if (nb < 0)
 	{
-		if (n < 0)
-		{
-			pf_putchar('-');
-			n *= -1;
-		}
-		if (n >= 10)
-			pf_putnbr(n / 10);
-		pf_putchar((n % 10) + '0');
+		if (nb >= -9)
+			ft_putchar('-');
+		ft_putchar('0' - (nb % 10));
 	}
+	else
+		ft_putchar('0' + (nb % 10));
 }
